@@ -228,7 +228,7 @@ class SshStorage(AbstractSshStorage):
         super(SshStorage, self).publish()
         local = self.repo.get_repo_path()
         remote = self.get_remote_url()
-        fdroidserver.update_serverwebroot(remote, local)
+        fdroidserver.update_serverwebroot({'url': remote}, local)
 
 
 class GitStorage(AbstractSshStorage):
@@ -348,4 +348,4 @@ class DefaultStorage:
         remote = os.path.join(self.path, self.get_identifier())
         if not os.path.exists(remote):
             os.makedirs(remote)
-        fdroidserver.update_serverwebroot(remote, local)
+        fdroidserver.update_serverwebroot({'url': remote}, local)
