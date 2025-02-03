@@ -344,7 +344,6 @@ class Repository(AbstractRepository):
 
         # Make the index for the repo
         fdroidserver.make_index(apps, apks, REPO_DIR, False)
-        update.make_categories_txt(REPO_DIR, categories)
 
         # Update cache if it changed
         if cache_changed or file_cache_changed:
