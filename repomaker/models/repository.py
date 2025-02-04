@@ -16,7 +16,7 @@ from django.template.loader import render_to_string
 from django.templatetags.static import static
 from django.urls import reverse
 from django.utils import timezone
-from fdroidserver import common, deploy, update
+from fdroidserver import common, deploy, update, metadata
 from repomaker import tasks
 from repomaker.storage import REPO_DIR, get_repo_file_path, get_repo_root_path, \
     get_icon_file_path
@@ -302,7 +302,7 @@ class Repository(AbstractRepository):
         apks, cache_changed = update.process_apks(apkcache, REPO_DIR, knownapks, False)
 
         # Apply app metadata from database
-        apps = {}
+        apps = metadata.read_metadata()
         categories = set()
         for apk in apks:
             try:
