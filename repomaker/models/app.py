@@ -183,7 +183,7 @@ class App(AbstractApp):
         meta.Summary = self.summary_override
         meta.Description = self.description_override
         meta.AuthorName = self.author_name
-        meta.added = timezone.make_naive(self.added_date)
+        meta.added = self.added_date
         meta.Categories = [category.name for category in self.category.all()]
         meta['localized'] = self._get_screenshot_dict()
         self._add_translations_to_localized(meta['localized'])
