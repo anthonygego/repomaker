@@ -10,6 +10,9 @@
     "dialog-polyfill": "~0.4.8",
     "material-design-icons-iconfont": "4.0.2",
     "material-design-lite": "^1.3.0",
-    "roboto-fontface": ">=0.8.0"
+    "roboto-fontface": ">=0.8.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "postcss-cli": "^11.0.0"
   }
 }
