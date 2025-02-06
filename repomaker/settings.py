@@ -90,6 +90,7 @@ SITE_ID = 1
 
 if not SINGLE_USER_MODE:
     LOGIN_REDIRECT_URL = "/"
+    ALLOW_REGISTRATION = True
     # http://django-allauth.readthedocs.io/en/latest/installation.html
     INSTALLED_APPS += [
         'allauth',
@@ -103,7 +104,7 @@ if not SINGLE_USER_MODE:
         # 'allauth.socialaccount.providers.gitlab',
         # 'allauth.socialaccount.providers.google',
         # 'allauth.socialaccount.providers.linkedin_oauth2',
-        'allauth.socialaccount.providers.openid',
+        # 'allauth.socialaccount.providers.openid',
         # 'allauth.socialaccount.providers.reddit',
         # 'allauth.socialaccount.providers.slack',
         # 'allauth.socialaccount.providers.stackexchange',
@@ -120,6 +121,7 @@ if not SINGLE_USER_MODE:
         'signup': 'repomaker.views.RmSignupForm',
     }
     ACCOUNT_EMAIL_VERIFICATION = "none"
+    ACCOUNT_ADAPTER = 'repomaker.account_adapter.RegistrationFilterAccountAdapter'
 
 
 MIDDLEWARE = [
@@ -156,6 +158,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'repomaker.account_adapter.context_processor',
             ],
         },
     },

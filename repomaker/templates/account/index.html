@@ -32,18 +32,22 @@
 				<a href="{{ login_url }}" class="rm-login-tab {% block login-active %}{% endblock %}">
 					{% trans "Login" %}
 				</a>
+				{% if ALLOW_REGISTRATION %}
 				<a href="{{ signup_url }}" class="rm-login-tab {% block signup-active %}{% endblock %}">
 					{% trans "Sign Up" %}
 				</a>
+				{% endif %}
 			</div>
 
 			<div class="mdl-tabs__panel {% block login-tab-active %}{% endblock %}" id="login-panel">
 				{% block login-form %}{% endblock login-form %}
 			</div>
 
+			{% if ALLOW_REGISTRATION %}
 			<div class="mdl-tabs__panel {% block signup-tab-active %}{% endblock %}" id="signup-panel">
 				{% block signup-form %}{% endblock signup-form %}
 			</div>
+			{% endif %}
 
 		</div>
 	</div>
